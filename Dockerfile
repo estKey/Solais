@@ -2,7 +2,7 @@ FROM golang:latest
 
 LABEL maintainer="Agateram"
 
-WORKDIR /src
+WORKDIR /solais
 COPY . .
 
 RUN go build -o main .
