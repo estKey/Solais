@@ -3,7 +3,7 @@ FROM golang:latest
 LABEL maintainer="Agateram"
 
 WORKDIR /solais
-COPY . .
+COPY /solais .
 
 RUN go build -o main .
 
