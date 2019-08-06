@@ -5,9 +5,10 @@ LABEL maintainer="Agateram"
 WORKDIR /solais
 COPY /solais .
 
-RUN go build -o main .
+# RUN go clean -modcache
+RUN go build -o solais .
 
 EXPOSE 8080
 
-CMD ["./main"]
+CMD ["./solais"]
 
