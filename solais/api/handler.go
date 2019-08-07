@@ -12,6 +12,6 @@ func Channel(handler fhttp.RequestHandler) fhttp.RequestHandler {
 		func (ctx *fhttp.RequestCtx) {
 			start:= time.Now()
 			handler(ctx)
-			log.Println("New Connection from ", ctx.RemoteAddr(), "path ", (string)(ctx.RequestURI()), "timeuse(ns) ", time.Since(start).Nanoseconds()/1000000)
+			log.Println("New Connection from", ctx.RemoteAddr(), "path:", (string)(ctx.RequestURI()), "timeuse(ns):", time.Since(start).Nanoseconds())
 		})
 }
