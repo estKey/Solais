@@ -2,12 +2,12 @@ package route
 
 import (
 	"fmt"
-	"log"
+	"Solais/utils/log"
 	fhttp "github.com/valyala/fasthttp"
 )
 
 func Index(ctx *fhttp.RequestCtx){
 	fmt.Fprint(ctx, "Welcome to Solais!\n")
-	log.Println("Index Page")
+	log.Info.Println("Now Visiting Index Page")
 	// reflect.TypeOf(d)
 }

@@ -1,10 +1,13 @@
 package route
 
 import (
-	"log"
+	"Solais/utils/log"
+	"Solais/utils/rdb"
 	fhttp "github.com/valyala/fasthttp"
 )
 
 func Auth(ctx *fhttp.RequestCtx){
-	log.Println("Incoming login via Auth2.0")
+	log.Info.Println("Incoming login via Auth2.0")
+	rdb.Set("", "user", "estKey")
+	log.Info.Println("Hello", rdb.Get("", "user"))
 }

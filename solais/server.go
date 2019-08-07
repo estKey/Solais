@@ -3,8 +3,7 @@ package main
 import (
 	"Solais/api"
 	"Solais/route"
-
-	"log"
+	"Solais/utils/log"
 
 	frouter "github.com/buaazp/fasthttprouter"
 	fhttp "github.com/valyala/fasthttp"
@@ -21,10 +20,10 @@ func main() {
 		port: ":8080",
 	}
 	router := frouter.New()
-	router.GET("/", api.Channel(route.Index))
-	router.GET("/auth", api.Channel(route.Auth))
-	router.GET("/node", api.Channel(route.Node))
-	router.GET("/room", api.Channel(route.Room))
-	log.Println("Start Server on Port:", Server.port)
-	log.Fatal(fhttp.ListenAndServe(Server.port, router.Handler))
+	router.GET("/", api.Route(route.Index))
+	router.GET("/auth", api.Route(route.Auth))
+	router.GET("/node", api.Route(route.Node))
+	router.GET("/room", api.Route(route.Room))
+	log.Info.Println("Start Server on Port:", Server.port)
+	log.Error.Fatal(fhttp.ListenAndServe(Server.port, router.Handler))
 }

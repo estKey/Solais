@@ -1,4 +1,4 @@
-package utils
+package log
 
 import (
 	"io"
@@ -18,8 +18,8 @@ func init() {
 		log.Fatalln("Failed to open the logging file", err)
 	}
 
-	Info = log.New(os.Stdout, "Info:", log.Ldate|log.Ltime|log.Lshortfile)
-	Warning = log.New(os.Stdout, "Warning:", log.Ldate|log.Ltime|log.Lshortfile)
-	Error = log.New(io.MultiWriter(os.Stderr, errFile), "Error:", log.Ldate|log.Ltime|log.Lshortfile)
+	Info = log.New(os.Stdout, "Info: ", log.Ldate|log.Ltime)
+	Warning = log.New(os.Stdout, "Warning: ", log.Ldate|log.Ltime|log.Lshortfile)
+	Error = log.New(io.MultiWriter(os.Stderr, errFile), "Error: ", log.Ldate|log.Ltime|log.Lshortfile)
 
 }
