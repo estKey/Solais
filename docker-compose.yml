@@ -1,2 +1,16 @@
 version: '2' # Indecates Docker-Compose file is using Version 2 file
-services:
+services: # Service List
+  server: # Main service
+    build:
+      context: .
+      dockerfile: solais/Dockerfile
+    ports:
+      - '9000:8080'
+  redis: # Database Servie
+    image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - '${REDIS_DIR}/conf:/usr/local/etc/redis'
+      - '${REDIS_DIR}/data:/data'
+    command: redis-server

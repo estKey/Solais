@@ -3,6 +3,7 @@ package main
 import (
 	"Solais/api"
 	"Solais/route"
+	"Solais/utils"
 	"Solais/utils/log"
 
 	frouter "github.com/buaazp/fasthttprouter"
@@ -24,6 +25,11 @@ func main() {
 	router.GET("/auth", api.Route(route.Auth))
 	router.GET("/node", api.Route(route.Node))
 	router.GET("/room", api.Route(route.Room))
-	log.Info.Println("Start Server on Port:", Server.port)
+	log.Info.Println("Starting Server on Port:", Server.port, ", Total Uptime:", utils.CalculateUptime())
 	log.Error.Fatal(fhttp.ListenAndServe(Server.port, router.Handler))
+	log.Info.Println("Shutting Down, Total Uptime:", utils.CalculateUptime())
+}
+
+
+func configureRouter(router *frouter.Router) {
 }

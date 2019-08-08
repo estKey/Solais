@@ -12,8 +12,7 @@ func Set(addr string, key string, value string) {
 	}
 	c, err := redis.Dial("tcp", addr)
 	if err != nil {
-		log.Error.Println("Connect to redis error", err)
-		return
+		log.Error.Println("Connect to redis error", err) 
 	}
 	_, err = c.Do("SET", key, value, "NX")
 	if err != nil {
