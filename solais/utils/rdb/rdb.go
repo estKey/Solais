@@ -6,13 +6,15 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
+var DEFAULT_ADDR = "172.18.0.3:6379"
+
 func Set(addr string, key string, value string) {
 	if addr == "" {
-		addr = "127.0.0.1:6379"
+		addr = DEFAULT_ADDR
 	}
 	c, err := redis.Dial("tcp", addr)
 	if err != nil {
-		log.Error.Println("Connect to redis error", err) 
+		log.Error.Println("Connect to redis error:", err) 
 	}
 	_, err = c.Do("SET", key, value, "NX")
 	if err != nil {
@@ -23,7 +25,7 @@ func Set(addr string, key string, value string) {
 
 func Get(addr string, key string) string {
 	if addr == "" {
-		addr = "127.0.0.1:6379"
+		addr = DEFAULT_ADDR
 	}
 	c, err := redis.Dial("tcp", addr)
 	if err != nil {
@@ -43,7 +45,7 @@ func Get(addr string, key string) string {
 
 func Update(addr string, key string, value string) {
 	if addr == "" {
-		addr = "127.0.0.1:6379"
+		addr = DEFAULT_ADDR
 	}
 	c, err := redis.Dial("tcp", addr)
 	if err != nil {

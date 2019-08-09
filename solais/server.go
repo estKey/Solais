@@ -18,7 +18,7 @@ type Config struct {
 func main() {
 	var Server = Config{
 		id:   1,
-		port: ":8080",
+		port: ":9000",
 	}
 	router := frouter.New()
 	router.GET("/", api.Route(route.Index))

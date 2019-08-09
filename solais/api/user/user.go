@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 )
 
-// User struct 
+// User Entity 
 type User struct {
 	id string `json:"id"`			// id => timestamp + ip address
 	name string `json:"name"`
@@ -36,6 +36,7 @@ func new(id string, name string, role string) *User {
 	}
 }
 
+// The User will only be registered to the browser and wait until it join or create a room
 func Register(id string, name string, role string) {
 	user := new(id, name, role)
 }

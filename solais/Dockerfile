@@ -8,7 +8,7 @@ COPY /solais .
 # RUN go clean -modcache
 RUN go build -o solais .
 
-EXPOSE 8080
+EXPOSE 9000
 
 CMD ["./solais"]
 

@@ -8,6 +8,6 @@ Distributed RTC in Go
 
 - Clone this project
 - Get docker runing on your machine
-- Create docker image & run
+- Run Docker-compose up
 
 * If you are using vscode, please install extension Docker
