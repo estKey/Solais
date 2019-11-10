@@ -6,7 +6,7 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
-var DEFAULT_ADDR = "172.18.0.3:6379"
+var DEFAULT_ADDR = "redis_master:6379"
 
 func Set(addr string, key string, value string) {
 	if addr == "" {
@@ -37,7 +37,7 @@ func Get(addr string, key string) string {
 		log.Error.Println("redis get failed:", err)
 		return "err"
 	} else {
-		log.Error.Println("Get %v: %v \n", key, value)
+		log.Info.Println("Get", key, value)
 	}
 	defer c.Close()
 	return value

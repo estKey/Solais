@@ -10,11 +10,11 @@ services: # Service List
       - redis_master
       - slave6380
   redis_master: # Master Redis Servie
-    image: redis:latest
-    # build:
-    #   context: .
-    #   dockerfile: redis/Dockerfile
-    # container_name: master
+    # image: redis:latest
+    build:
+      context: .
+      dockerfile: redis/Dockerfile
+    container_name: master
     ports:
       - '6379:6379'
     restart: always
